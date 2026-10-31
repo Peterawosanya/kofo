@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #0a0a0a;
+    --color-text: #f5f5f0;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-neutral-950 text-neutral-100;
+    font-family: 'Jost', system-ui, sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-white text-black;
+  }
+}
+
+@layer components {
+  .font-serif-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .font-sans-body {
+    font-family: 'Jost', system-ui, sans-serif;
+  }
+
+  .text-eyebrow {
+    @apply font-sans-body text-[0.65rem] uppercase tracking-[0.4em] font-light;
+  }
+
+  .nav-link {
+    @apply font-sans-body text-[0.7rem] uppercase tracking-[0.3em] font-light
+           transition-all duration-500 hover:opacity-100;
+  }
+
+  .btn-primary {
+    @apply font-sans-body text-[0.7rem] uppercase tracking-[0.3em] font-light
+           border border-white/30 px-10 py-5 transition-all duration-500
+           hover:bg-white hover:text-black hover:border-white;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+  .reveal-delay-4 { transition-delay: 0.6s; }
+  .reveal-delay-5 { transition-delay: 0.75s; }
+
+  .image-grain {
+    filter: contrast(1.05) saturate(0.85);
+  }
+
+  .clip-reveal {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .clip-reveal.is-visible {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
