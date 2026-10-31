@@ -8,7 +8,6 @@ interface HeroProps {
 
 export default function Hero({ onNavigate }: HeroProps) {
   const [loaded, setLoaded] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100);
@@ -29,7 +28,6 @@ export default function Hero({ onNavigate }: HeroProps) {
           className="h-full w-full object-cover object-center image-grain"
           loading="eager"
           fetchPriority="high"
-          onLoad={() => setImageLoaded(true)}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink-950/50 via-ink-950/20 to-ink-950/70" />
         <div className="absolute inset-0 bg-ink-950/20" />
@@ -100,7 +98,6 @@ export default function Hero({ onNavigate }: HeroProps) {
         alt=""
         className="hidden"
         loading="eager"
-        onLoad={() => setImageLoaded(true)}
       />
     </section>
   );
